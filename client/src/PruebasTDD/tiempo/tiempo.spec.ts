@@ -12,9 +12,9 @@ defineFeature(feature, (test) => {
     let idTiempo: number;
 
     given(/^existe un tiempo con ID (\d+) en la base de datos$/, async (id: string) => {
-        idTiempo = parseInt(id);
+      idTiempo = parseInt(id);
 
-      
+
 /*
       const nuevoTiempo = {
         IDTIEMPO: 9,
@@ -25,21 +25,21 @@ defineFeature(feature, (test) => {
     await tiempoService.agregarTiempo(nuevoTiempo);*/    });
 
     when(/^se actualiza el tiempo con ID (\d+) con datos actualizados$/, async (id) => {
-        const datosActualizados = {
-          HORAS: 100, 
-          CODIGO: 'DT', 
-          DESCRIPCION: 'Nueva descripción 2' 
-        };
-        const mensaje = await tiempoService.actualizarTiempo(idTiempo, datosActualizados);
-        expect(mensaje).toEqual('Tiempo actualizado correctamente');
-      });
-      
+      const datosActualizados = {
+        HORAS: 100,
+        CODIGO: 'DT',
+        DESCRIPCION: 'Nueva descripción '
+      };
+      const mensaje = await tiempoService.actualizarTiempo(idTiempo, datosActualizados);
+      expect(mensaje).toEqual('Tiempo actualizado correctamente');
+    });
+
 
     then('se debería recibir un mensaje de éxito', async () => {
-        const tiempoActualizado = await tiempoService.obtenerTiempoPorID(idTiempo);
-        expect(tiempoActualizado.HORAS).toEqual(100); 
-        expect(tiempoActualizado.CODIGO).toEqual('DT'); 
-        expect(tiempoActualizado.DESCRIPCION).toEqual('Nueva descripción 2');
+      const tiempoActualizado = await tiempoService.obtenerTiempoPorID(idTiempo);
+      expect(tiempoActualizado.HORAS).toEqual(100);
+      expect(tiempoActualizado.CODIGO).toEqual('DT');
+      expect(tiempoActualizado.DESCRIPCION).toEqual('Nueva descripción ');
     });
   });
 
