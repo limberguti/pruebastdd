@@ -6,13 +6,6 @@ import { expect } from '@jest/globals';
 const feature = loadFeature('src/PruebasTDD/searchReq/searchReq.feature');
 
 
-/*
-afterAll(async () => {
-  // Elimina los datos de prueba después de ejecutar las pruebas
-  await db.query('DELETE FROM requerimiento WHERE ...');
-});
-*/
-
 const requerimientoService = new RequerimientoService();
 
 defineFeature(feature, (test) => {
@@ -20,7 +13,7 @@ defineFeature(feature, (test) => {
     let search: string;
 
     given('que el endpoint "/requerimiento" está disponible para buscar requerimientos', () => {});
-    // No especificas un "Existen requerimientos en la base de datos" ya que se manejará en los hooks beforeAll y afterAll.
+
 
     and('Existen requerimientos en la base de datos', () => {});
 
@@ -32,10 +25,8 @@ defineFeature(feature, (test) => {
     then('debería recibir una respuesta con los requerimientos que coinciden con el nombre del departamento', async () => {
         const result = await db.query('SELECT * FROM requerimiento WHERE DEPARTAMENTO LIKE ?', [`%${search}%`]);
       
-        // Ajusta según la estructura específica de tu resultado de la consulta
         expect(result).toBeDefined();
       
-
       });
       
   });
