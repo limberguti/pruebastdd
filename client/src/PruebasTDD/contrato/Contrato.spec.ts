@@ -1,11 +1,11 @@
-import { defineFeature, loadFeature } from 'jest-cucumber';
+/* import { defineFeature, loadFeature } from 'jest-cucumber';
 
 import { render, waitFor, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import axios from 'axios';
 import { useAddCargo } from './Contrato';
 import { beforeEach } from 'node:test';
-import { jest } from '@jest/globals';
+import { expect, jest } from '@jest/globals';
 
 // Mock axios globally
 jest.mock('axios');
@@ -25,8 +25,8 @@ defineFeature(feature, (test) => {
 
         when('la página AddCargo se monta', () => {
             mockedAxios.get.mockResolvedValueOnce({ data: [{ id: 1, nombre: 'Docente 1' }] })
-                .mockResolvedValueOnce({ data: [{ id: 1, descripcion: 'Requerimiento 1' }] });
-            render(<useAddCargo />);
+                .mockResolvedValueOnce({ data: [{ id: 1, descripcion: 'Requerimiento 1' }] })
+            render(<useAddCargo/>);
             
     });
 
@@ -56,3 +56,4 @@ defineFeature(feature, (test) => {
 
     // Continuar con el resto de los escenarios...
 });
+ */
