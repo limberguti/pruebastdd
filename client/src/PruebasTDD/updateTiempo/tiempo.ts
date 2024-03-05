@@ -1,23 +1,6 @@
 import { db } from '../../../../api/db';
 
 class TiempoService {
-    async agregarTiempo(nuevoTiempo: any): Promise<void> {
-        return new Promise<void>((resolve, reject) => {
-          if (!nuevoTiempo.CODIGO) {
-            reject(new Error('El campo CODIGO es requerido'));
-            return;
-          }
-      
-          db.query('INSERT INTO tiempo (IDTIEMPO, CODIGO, HORAS, DESCRIPCION) VALUES (?,?, ?, ?)', [nuevoTiempo.IDTIEMPO,nuevoTiempo.CODIGO, nuevoTiempo.HORAS, nuevoTiempo.DESCRIPCION], (err: any, result: any) => {
-            if (err) {
-              reject(err);
-            } else {
-              resolve();
-            }
-          });
-        });
-      }
-      
 
   async actualizarTiempo(idTiempo: number, datosActualizados: any): Promise<string> {
     return new Promise<string>((resolve, reject) => {

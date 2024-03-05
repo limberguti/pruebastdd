@@ -17,7 +17,7 @@ defineFeature(feature, (test) => {
 
         when(/^se actualiza el cargo con ID (\d+) con datos actualizados$/, async (id) => {
             const datosActualizados = {
-                NIVEL: 4,
+                NIVEL: 5,
                 GRADO: 7,
                 REMUNERACION: 3999.99
             };
@@ -28,7 +28,7 @@ defineFeature(feature, (test) => {
 
         then('se debería recibir un mensaje de éxito', async () => {
             const datosActualizado = await cargoService.obtenerCargoPorID(idCargo);
-            expect(datosActualizado.NIVEL).toEqual(4);
+            expect(datosActualizado.NIVEL).toEqual(5);
             expect(datosActualizado.GRADO).toEqual(7);
             expect(datosActualizado.DESCRIPCION).toEqual(3999.99);
         });
