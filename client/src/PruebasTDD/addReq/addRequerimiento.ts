@@ -4,12 +4,9 @@ class RequerimientoService {
 
     async agregarRequerimiento(nuevoRequerimiento: any): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            if (!nuevoRequerimiento.IDREQUERIMIENTO) {
-                reject(new Error('El campo CODIGO es requerido'));
-                return;
-            }
+            
 
-            db.query('INSERT INTO requerimiento (IDREQUERIMIENTO, IDCARGO, SEDE, DEPARTAMENTO, DENOMINACION, DEDICACION) VALUES (?,?,?,?,?,?)', [nuevoRequerimiento.IDREQUERIMIENTO, nuevoRequerimiento.IDCARGO, nuevoRequerimiento.SEDE, nuevoRequerimiento.DEPARTAMENTO, nuevoRequerimiento.DENOMINACION, nuevoRequerimiento.DEDICACION], (err: any, result: any) => {
+            db.query('INSERT INTO requerimiento ( IDCARGO, SEDE, DEPARTAMENTO, DENOMINACION, DEDICACION) VALUES (?,?,?,?,?)', [ nuevoRequerimiento.IDCARGO, nuevoRequerimiento.SEDE, nuevoRequerimiento.DEPARTAMENTO, nuevoRequerimiento.DENOMINACION, nuevoRequerimiento.DEDICACION], (err: any, result: any) => {
                 if (err) {
                     reject(err);
                 } else {

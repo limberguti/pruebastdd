@@ -15,11 +15,11 @@ defineFeature(feature, (test) => {
             idCargo = parseInt(id);
         });
 
-        when(/^se actualiza el cargo con ID (\d+) con datos actualizados$/, async (id) => {
+        when(/^se actualiza el cargo con ID (\d+) con datos actualizados$/, async (id:string) => {
             const datosActualizados = {
-                NIVEL: 4,
+                NIVEL: 2,
                 GRADO: 7,
-                REMUNERACION: 3999.99
+                REMUNERACION: 3999.99,
             };
             const mensaje = await cargoService.actualizarCargo(idCargo, datosActualizados);
             expect(mensaje).toEqual('Cargo actualizado correctamente');
@@ -28,9 +28,9 @@ defineFeature(feature, (test) => {
 
         then('se debería recibir un mensaje de éxito', async () => {
             const datosActualizado = await cargoService.obtenerCargoPorID(idCargo);
-            expect(datosActualizado.NIVEL).toEqual(4);
+            expect(datosActualizado.NIVEL).toEqual(2);
             expect(datosActualizado.GRADO).toEqual(7);
-            expect(datosActualizado.DESCRIPCION).toEqual(3999.99);
+            expect(datosActualizado.REMUNERACION).toEqual(3999.99);
         });
     });
 

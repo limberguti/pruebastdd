@@ -13,7 +13,6 @@ defineFeature(feature, (test) => {
         let nuevoCargo: any;
         given('que tenga datos el cargo', () => {
             nuevoCargo = {
-                IDCARGO: 182,
                 IDTIEMPO: 2,
                 TIPOPERSONAL: 'DOCENTE',
                 CATEGORIA: 'PRINCIPAL',
@@ -36,7 +35,7 @@ defineFeature(feature, (test) => {
             expect(cargoAgregado.TIPOPERSONAL).toEqual('DOCENTE');
             expect(cargoAgregado.CATEGORIA).toEqual('PRINCIPAL');
             expect(cargoAgregado.NIVEL).toEqual(1);
-            expect(cargoAgregado.GRADO).toEqual(2);
+            expect(cargoAgregado.GRADO).toEqual(8);
             expect(cargoAgregado.REMUNERACION).toEqual(1000.00);
 
         });

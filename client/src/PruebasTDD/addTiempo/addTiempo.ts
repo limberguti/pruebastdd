@@ -4,12 +4,9 @@ class TiempoService {
 
     async agregarTiempo(nuevoTiempo: any): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            if (!nuevoTiempo.IDTIEMPO) {
-                reject(new Error('El campo CODIGO es requerido'));
-                return;
-            }
+            
 
-            db.query('INSERT INTO tiempo (IDTIEMPO, DESCRIPCION, CODIGO, HORAS) VALUES (?,?,?,?)', [nuevoTiempo.IDTIEMPO, nuevoTiempo.DESCRIPCION, nuevoTiempo.CODIGO, nuevoTiempo.HORAS], (err: any, result: any) => {
+            db.query('INSERT INTO tiempo ( DESCRIPCION, CODIGO, HORAS) VALUES (?,?,?)', [nuevoTiempo.DESCRIPCION, nuevoTiempo.CODIGO, nuevoTiempo.HORAS], (err: any, result: any) => {
                 if (err) {
                     reject(err);
                 } else {

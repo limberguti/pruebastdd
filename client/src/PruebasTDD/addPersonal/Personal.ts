@@ -4,12 +4,9 @@ class PersonalService {
 
     async agregarPersonal(nuevoPersonal: any): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            if (!nuevoPersonal.IDDOCENTE) {
-                reject(new Error('El campo CODIGO es requerido'));
-                return;
-            }
+            
 
-            db.query('INSERT INTO docente (IDDOCENTE, APELLIDOS, NOMBRES, CEDULA, NACIONALIDAD, GENERO, CORREO_PERSONAL, CORREO_INSTITUCIONAL, CIUDAD, PROVINCIA, NROPERSONAL, CAMPUSSEDEPERSONAL, OBSERVACIONESPERSONAL) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)', [nuevoPersonal.IDDOCENTE, nuevoPersonal.APELLIDOS, nuevoPersonal.NOMBRES, nuevoPersonal.CEDULA, nuevoPersonal.NACIONALIDAD, nuevoPersonal.GENERO, nuevoPersonal.CORREO_PERSONAL, nuevoPersonal.CORREO_INSTITUCIONAL, nuevoPersonal.CIUDAD, nuevoPersonal.PROVINCIA, nuevoPersonal.NROPERSONAL, nuevoPersonal.CAMPUSSEDEPERSONAL, nuevoPersonal.OBSERVACIONESPERSONAL], (err: any, result: any) => {
+            db.query('INSERT INTO docente (APELLIDOS, NOMBRES, CEDULA, NACIONALIDAD, GENERO, CORREO_PERSONAL, CORREO_INSTITUCIONAL, CIUDAD, PROVINCIA, NROPERSONAL, CAMPUSSEDEPERSONAL, OBSERVACIONESPERSONAL) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)', [nuevoPersonal.APELLIDOS, nuevoPersonal.NOMBRES, nuevoPersonal.CEDULA, nuevoPersonal.NACIONALIDAD, nuevoPersonal.GENERO, nuevoPersonal.CORREO_PERSONAL, nuevoPersonal.CORREO_INSTITUCIONAL, nuevoPersonal.CIUDAD, nuevoPersonal.PROVINCIA, nuevoPersonal.NROPERSONAL, nuevoPersonal.CAMPUSSEDEPERSONAL, nuevoPersonal.OBSERVACIONESPERSONAL], (err: any, result: any) => {
                 if (err) {
                     reject(err);
                 } else {

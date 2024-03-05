@@ -13,7 +13,7 @@ defineFeature(feature, (test) => {
         let nuevoRequerimiento: any;
         given('que tenga datos el requerimiento', () => {
             nuevoRequerimiento = {
-                IDREQUERIMIENTO: 38,
+               
                 IDCARGO: 50,
                 SEDE: 'matriz',
                 DEPARTAMENTO: 'Ciencias',

@@ -19,19 +19,20 @@ class CargoService {
   }
   async obtenerCargoPorID(idCargo: number): Promise<any> {
     return new Promise<any>((resolve, reject) => {
-      db.query('SELECT * FROM tiempo WHERE IDTIEMPO = ?', [idCargo], (err: any, result: any) => {
-        if (err) {
-          reject(err);
-        } else {
-          if (result.length === 0) {
-            reject(new Error('Cargo no encontrado'));
-          } else {
-            resolve(result[0]); 
-          }
-        }
-      });
+        db.query('SELECT * FROM cargo WHERE IDCARGO = ?', [idCargo], (err: any, result: any) => {
+            if (err) {
+                reject(err);
+            } else {
+                if (result.length === 0) {
+                    reject(new Error('Cargo no encontrado'));
+                } else {
+                    resolve(result[0]);
+                }
+            }
+        });
     });
-  }
+}
+
 }
 
 

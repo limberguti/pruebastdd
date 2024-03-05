@@ -13,7 +13,7 @@ defineFeature(feature, (test) => {
         let nuevoTiempo: any;
         given('que tenga datos el tiempo', () => {
             nuevoTiempo = {
-                IDTIEMPO: 9,
+                
                 DESCRIPCION: 'Tiempo completo',
                 CODIGO: 'TC',
                 HORAS: 40,

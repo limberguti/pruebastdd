@@ -13,7 +13,7 @@ defineFeature(feature, (test) => {
         let nuevoPersonal: any;
         given('que tenga datos el empleado', () => {
             nuevoPersonal = {
-                IDDOCENTE: 393,
+               
                 APELLIDOS: 'Perez',
                 NOMBRES: 'Juan',
                 CEDULA: '1234567890',

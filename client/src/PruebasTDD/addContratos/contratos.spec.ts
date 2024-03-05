@@ -13,7 +13,7 @@ defineFeature(feature, (test) => {
         let nuevoContrato: any;
         given('que tenga datos el contrato', () => {
             nuevoContrato = {
-                IDCONTRATO: 392,
+                
                 IDDOCENTE: 392,
                 IDREQUERIMIENTO: 35,
                 FECHAINICIO: '2021-07-01',
@@ -37,10 +37,10 @@ defineFeature(feature, (test) => {
             const contratoAgregado = await ContratoService.obtenerContratoPorID(392);
             expect(contratoAgregado.IDDOCENTE).toEqual(392);
             expect(contratoAgregado.IDREQUERIMIENTO).toEqual(35);
-            expect(contratoAgregado.FECHAINICIO).toEqual('2021-07-01');
-            expect(contratoAgregado.FECHAFIN).toEqual('2021-07-31');
+            expect(contratoAgregado.FECHAINICIO.toISOString()).toEqual('2021-07-01T05:00:00.000Z');
+            expect(contratoAgregado.FECHAFIN.toISOString()).toEqual('2021-07-31T05:00:00.000Z');
             expect(contratoAgregado.FUENTE).toEqual('Contrato');
-            expect(contratoAgregado.FECHA).toEqual('2021-07-01');
+            expect(contratoAgregado.FECHA.toISOString()).toEqual('2021-07-01T05:00:00.000Z');
             expect(contratoAgregado.CERTIFICACION_PRESUPUESTARIA).toEqual('1234567890');
             expect(contratoAgregado.IDMEMO).toEqual('');
             expect(contratoAgregado.ANALISTADELPROCESO).toEqual('Juan Perez');

@@ -4,10 +4,7 @@ class CargoService {
 
     async agregarCargo(nuevoCargo: any): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            if (!nuevoCargo.IDCARGO) {
-                reject(new Error('El campo CODIGO es requerido'));
-                return;
-            }
+           
 
             db.query('INSERT INTO cargo (IDCARGO, IDTIEMPO, TIPOPERSONAL, CATEGORIA, NIVEL, GRADO, REMUNERACION) VALUES (?,?,?,?,?,?,?)', [nuevoCargo.IDCARGO, nuevoCargo.IDTIEMPO, nuevoCargo.TIPOPERSONAL, nuevoCargo.CATEGORIA, nuevoCargo.NIVEL, nuevoCargo.GRADO, nuevoCargo.REMUNERACION], (err: any, result: any) => {
                 if (err) {

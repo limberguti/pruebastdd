@@ -4,10 +4,7 @@ class ContratoService {
 
     async agregarContrato(nuevoContrato: any): Promise<void> {
         return new Promise<void>((resolve, reject) => {
-            if (!nuevoContrato.IDCONTRATO) {
-                reject(new Error('El campo CODIGO es requerido'));
-                return;
-            }
+          
 
             db.query('INSERT INTO contrato (IDCONTRATO, IDDOCENTE, IDREQUERIMIENTO, FECHAINICIO, FECHAFIN, FUENTE, FECHA, CERTIFICACION_PRESUPUESTARIA, IDMEMO, ANALISTADELPROCESO, ARCHIVOMEMO) VALUES (?,?,?,?,?,?,?,?,?,?,?)', [nuevoContrato.IDCONTRATO, nuevoContrato.IDDOCENTE, nuevoContrato.IDREQUERIMIENTO, nuevoContrato.FECHAINICIO, nuevoContrato.FECHAFIN, nuevoContrato.FUENTE, nuevoContrato.FECHA, nuevoContrato.CERTIFICACION_PRESUPUESTARIA, nuevoContrato.IDMEMO, nuevoContrato.ANALISTADELPROCESO, nuevoContrato.ARCHIVOMEMO], (err: any, result: any) => {
                 if (err) {
