@@ -1,4 +1,4 @@
-Feature: Actualización de tiempo
+Feature: Actualización de cargo
 
   Scenario: Actualizar cargo existente correctamente
     Given existe un cargo con ID 1 en la base de datos

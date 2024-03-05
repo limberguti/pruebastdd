@@ -3,7 +3,7 @@ import { defineFeature, loadFeature } from 'jest-cucumber';
 import Personal from './Personal';
 import { expect } from '@jest/globals';
 
-const feature = loadFeature('src/PruebasTDD/personal/Personal.feature');
+const feature = loadFeature('src/PruebasTDD/addPersonal/Personal.feature');
 
 const PersonalService = new Personal();
 
@@ -13,7 +13,7 @@ defineFeature(feature, (test) => {
         let nuevoPersonal: any;
         given('que tenga datos el empleado', () => {
             nuevoPersonal = {
-                IDDOCENTE: 396,
+                IDDOCENTE: 393,
                 APELLIDOS: 'Perez',
                 NOMBRES: 'Juan',
                 CEDULA: '1234567890',
@@ -35,7 +35,7 @@ defineFeature(feature, (test) => {
         });
 
         then('el empleado se crea correctamente', async () => {
-            const personalAgregado = await PersonalService.obtenerPersonalPorID(392);
+            const personalAgregado = await PersonalService.obtenerPersonalPorID(393);
             expect(personalAgregado.APELLIDOS).toEqual('Perez');
             expect(personalAgregado.NOMBRES).toEqual('Juan');
             expect(personalAgregado.CEDULA).toEqual('1234567890');

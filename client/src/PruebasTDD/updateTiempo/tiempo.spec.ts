@@ -3,7 +3,7 @@ import { defineFeature, loadFeature } from 'jest-cucumber';
 import tiempo from './tiempo';
 import { expect } from '@jest/globals';
 
-const feature = loadFeature('src/PruebasTDD/tiempo/tiempo.feature');
+const feature = loadFeature('src/PruebasTDD/updateTiempo/tiempo.feature');
 
 const tiempoService = new tiempo();
 

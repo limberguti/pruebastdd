@@ -2,7 +2,7 @@ import { defineFeature, loadFeature } from 'jest-cucumber';
 import UpdateContratoService from './UpdateContrato';
 import { expect } from '@jest/globals';
 
-const feature = loadFeature('src/PruebasTDD/UpdateContrato/UpdateContrato.feature');
+const feature = loadFeature('src/PruebasTDD/updateContrato/UpdateContrato.feature');
 
 const updateContratoService = new UpdateContratoService();
 
@@ -16,23 +16,23 @@ defineFeature(feature, (test) => {
     });
 
     when(/^se actualiza el contrato con ID (\d+) con datos actualizados$/, async (id: string) => {
-        const datosActualizados = {
-          FECHAINICIO: '2024-01-01',
-          FECHAFIN: '2023-12-31',
-          FECHA: '2024-01-01',
-        };
-        const mensaje = await updateContratoService.actualizarContrato(idContrato, datosActualizados);
-        expect(mensaje).toEqual('Contrato actualizado correctamente');
-      });
+      const datosActualizados = {
+        FECHAINICIO: '2023-01-01',
+        FECHAFIN: '2023-12-31',
+        FECHA: '2024-01-01',
+      };
+      const mensaje = await updateContratoService.actualizarContrato(idContrato, datosActualizados);
+      expect(mensaje).toEqual('Contrato actualizado correctamente');
+    });
 
-      then('se debería recibir un mensaje de éxito', async () => {
-        const contratoActualizado = await updateContratoService.obtenerContratoPorID(idContrato);
-        expect(contratoActualizado.FECHAINICIO).toEqual('2023-01-01'); // Verificar que la fecha de inicio se haya actualizado correctamente
-        expect(contratoActualizado.FECHAFIN).toEqual('2023-12-31'); // Verificar que la fecha de fin se haya actualizado correctamente
-        expect(contratoActualizado.FECHA).toEqual('2023-01-01'); // Verificar que la fecha del contrato se haya actualizado correctamente
-        // Agrega más expectativas según tus necesidades
-      });
+    then('se debería recibir un mensaje de éxito', async () => {
+      const contratoActualizado = await updateContratoService.obtenerContratoPorID(idContrato);
+      expect(contratoActualizado.FECHAINICIO).toEqual('2023-01-01'); // Verificar que la fecha de inicio se haya actualizado correctamente
+      expect(contratoActualizado.FECHAFIN).toEqual('2023-12-31'); // Verificar que la fecha de fin se haya actualizado correctamente
+      expect(contratoActualizado.FECHA).toEqual('2023-01-01'); // Verificar que la fecha del contrato se haya actualizado correctamente
+      // Agrega más expectativas según tus necesidades
+    });
   });
 
-  
+
 });

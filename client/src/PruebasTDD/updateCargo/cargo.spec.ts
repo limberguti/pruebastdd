@@ -3,7 +3,7 @@ import { defineFeature, loadFeature } from 'jest-cucumber';
 import cargo from './cargo';
 import { expect } from '@jest/globals';
 
-const feature = loadFeature('src/PruebasTDD/cargo/cargo.feature');
+const feature = loadFeature('src/PruebasTDD/updateCargo/cargo.feature');
 
 const cargoService = new cargo();
 
@@ -28,7 +28,7 @@ defineFeature(feature, (test) => {
 
         then('se debería recibir un mensaje de éxito', async () => {
             const datosActualizado = await cargoService.obtenerCargoPorID(idCargo);
-            expect(datosActualizado.NIVEL).toEqual(100);
+            expect(datosActualizado.NIVEL).toEqual(4);
             expect(datosActualizado.GRADO).toEqual(7);
             expect(datosActualizado.DESCRIPCION).toEqual(3999.99);
         });
