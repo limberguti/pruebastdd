@@ -30,7 +30,7 @@ defineFeature(feature, (test) => {
       expect(contratoActualizado.FECHAINICIO.toISOString()).toEqual('2023-01-01T05:00:00.000Z'); // Verificar que la fecha de inicio se haya actualizado correctamente
       expect(contratoActualizado.FECHAFIN.toISOString()).toEqual('2023-12-31T05:00:00.000Z'); // Verificar que la fecha de fin se haya actualizado correctamente
       expect(contratoActualizado.FECHA.toISOString()).toEqual('2024-01-01T05:00:00.000Z'); // Verificar que la fecha del contrato se haya actualizado correctamente
-      // Agrega más expectativas según tus necesidades
+     
     });
   });
 
