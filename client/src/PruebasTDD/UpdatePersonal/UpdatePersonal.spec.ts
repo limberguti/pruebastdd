@@ -2,7 +2,7 @@ import { defineFeature, loadFeature } from 'jest-cucumber';
 import UpdatePersonalService from './UpdatePersonal';
 import { expect } from '@jest/globals';
 
-const feature = loadFeature('src/PruebasTDD/updatePersonal/UpdatePersonal.feature');
+const feature = loadFeature('src/PruebasTDD/UpdatePersonal/UpdatePersonal.feature');
 
 const updatePersonalService = new UpdatePersonalService();
 
